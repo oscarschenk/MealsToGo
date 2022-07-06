@@ -32,9 +32,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
-    "@react-native-community/eslint-config": "^2.0.0",
-    "eslint": "^7.16.0",
-    "prettier": "^2.2.1"
+    "@react-native-community/eslint-config": "^3.0.3",
+    "eslint": "^8.19.0",
+    "prettier": "^2.7.1"
   },
   "private": true
 }
