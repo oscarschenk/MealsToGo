@@ -5533,6 +5533,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"escape-string-regexp@npm:2.0.0":
+  version: 2.0.0
+  resolution: "escape-string-regexp@npm:2.0.0"
+  checksum: 9f8a2d5743677c16e85c810e3024d54f0c8dea6424fad3c79ef6666e81dd0846f7437f5e729dfcdac8981bc9e5294c39b4580814d114076b8d36318f46ae4395
+  languageName: node
+  linkType: hard
+
 "escape-string-regexp@npm:^1.0.5":
   version: 1.0.5
   resolution: "escape-string-regexp@npm:1.0.5"
@@ -7079,7 +7086,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"invariant@npm:*, invariant@npm:^2.2.4":
+"invariant@npm:*, invariant@npm:2.2.4, invariant@npm:^2.2.4":
   version: 2.2.4
   resolution: "invariant@npm:2.2.4"
   dependencies:
@@ -10022,6 +10029,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-webview@npm:11.18.1":
+  version: 11.18.1
+  resolution: "react-native-webview@npm:11.18.1"
+  dependencies:
+    escape-string-regexp: 2.0.0
+    invariant: 2.2.4
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: a0dbdfa8d46efdf9f207f286aef00a843d5bf6f51503be44fe26df9c10536580fb877c090843b84622e540e57beae459d640db27cbc4021537a5233f0c8da200
+  languageName: node
+  linkType: hard
+
 "react-native@npm:0.68.2":
   version: 0.68.2
   resolution: "react-native@npm:0.68.2"
@@ -10570,6 +10590,7 @@ __metadata:
     react-native-screens: ~3.11.1
     react-native-svg: 12.3.0
     react-native-web: 0.17.7
+    react-native-webview: 11.18.1
     styled-components: ^5.2.1
   languageName: unknown
   linkType: soft
