@@ -1,16 +1,38 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
+import * as firebase from "firebase";
 
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-
-const auth = getAuth();
+import { loginRequest } from "./authentication.service";
 
 export const AuthenticationContext = createContext();
 
-const useAuthentication = () => {};
-
 export const AuthenticationContextProvider = ({ children }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState(null);
+  const [error, setError] = useState(null);
+
+  const onLogin = (email, password) => {
+    setIsLoading(true);
+    loginRequest(email, password)
+      .then((u) => {
+        setUser(u);
+        setIsLoading(false);
+      })
+      .catch((e) => {
+        setIsLoading(false);
+        setError(e);
+      });
+  };
+
   return (
-    <AuthenticationContext.Provider value={{}}>
+    <AuthenticationContext.Provider
+      value={{
+        isAuthenticated: !!user,
+        user,
+        isLoading,
+        error,
+        onLogin,
+      }}
+    >
       {children}
     </AuthenticationContext.Provider>
   );

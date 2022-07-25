@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import MapView from "react-native-maps";
-import styled from "styled-components";
+import styled from "styled-components/native";
+
 import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
-import { MapCallout } from "../components/map-callout.component";
+
 import { Search } from "../components/search.component";
-import { Card } from "react-native-paper";
+import { MapCallout } from "../components/map-callout.component";
 
 const Map = styled(MapView)`
   height: 100%;
@@ -15,13 +16,15 @@ const Map = styled(MapView)`
 export const MapScreen = ({ navigation }) => {
   const { location } = useContext(LocationContext);
   const { restaurants = [] } = useContext(RestaurantsContext);
+
   const [latDelta, setLatDelta] = useState(0);
 
-  const { viewport, lat, lng } = location;
+  const { lat, lng, viewport } = location;
 
   useEffect(() => {
     const northeastLat = viewport.northeast.lat;
     const southwestLat = viewport.southwest.lat;
+
     setLatDelta(northeastLat - southwestLat);
   }, [location, viewport]);
 
@@ -48,7 +51,9 @@ export const MapScreen = ({ navigation }) => {
             >
               <MapView.Callout
                 onPress={() =>
-                  navigation.navigate("RestaurantDetail", { restaurant })
+                  navigation.navigate("RestaurantDetail", {
+                    restaurant,
+                  })
                 }
               >
                 <MapCallout restaurant={restaurant} />

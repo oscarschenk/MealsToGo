@@ -17,7 +17,7 @@ export const LocationContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!keyword.length) {
-      // Don't do anything
+      // don't do anything
       return;
     }
     locationRequest(keyword.toLowerCase())
